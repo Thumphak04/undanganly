@@ -16,13 +16,13 @@
                 <div class="hero-image">
                     <div class="card-stack">
                         <div class="hero-card">
-                            <img src="https://placehold.co/280x400/C9A961/white?text=Desain+1" alt="Desain Undangan 1">
+                             <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
                         </div>
                         <div class="hero-card">
-                            <img src="https://placehold.co/280x400/8B7355/white?text=Desain+2" alt="Desain Undangan 2">
+                             <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
                         </div>
                         <div class="hero-card">
-                            <img src="https://placehold.co/280x400/D4AF77/white?text=Desain+3" alt="Desain Undangan 3">
+                            <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
                         </div>
                     </div>
                 </div>
