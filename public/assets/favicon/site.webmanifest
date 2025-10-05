@@ -1,0 +1,23 @@
+{
+  "name": "Undanganly: Undangan Digital Online",
+  "short_name": "Undanganly",
+  "description": "Buat dan bagikan undangan pernikahan digital premium dengan mudah menggunakan template modern dan elegan dari Undanganly.",
+  "icons": [
+    {
+      "src": "/assets/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#A88F5A"
+}

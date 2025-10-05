@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <!-- Cover Section -->
+    <div id="cover" class="cover-section">
+        <div class="cover-overlay"></div>
+        <div class="cover-content">
+            <div class="ornament-top"></div>
+            <p class="cover-subtitle">Undangan Pernikahan</p>
+            <h1 class="cover-names" id="coverNames"></h1>
+            <div class="cover-divider"></div>
+            <p class="cover-guest">Kepada Yth.</p>
+            <p class="cover-guest-name" id="guestName">Tamu Undangan</p>
+            <button class="open-invitation-btn" id="openInvitation">
+                <i class="fas fa-envelope-open"></i>
+                <span>Buka Undangan</span>
+            </button>
+            <div class="ornament-bottom"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content hidden">
+        <!-- Music Control -->
+        <button class="music-control" id="musicControl">
+            <i class="fas fa-music"></i>
+        </button>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-subtitle">The Wedding of</p>
+                <h1 class="hero-names" id="heroNames"></h1>
+                <div class="hero-date" id="heroDate"></div>
+            </div>
+        </section>
+
+        <!-- Bismillah Section -->
+        <section class="bismillah-section">
+            <div class="container">
+                <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+                <p class="bismillah-translation">Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang</p>
+            </div>
+        </section>
+
+        <!-- Opening Section -->
+        <section class="opening-section">
+            <div class="container">
+                <div class="ornament-divider"></div>
+                <p class="opening-text" id="openingText"></p>
+                <div class="ornament-divider"></div>
+            </div>
+        </section>
+
+        <!-- Bride & Groom Section -->
+        <section class="couple-section">
+            <div class="container">
+                <h2 class="section-title">Mempelai</h2>
+                
+                <div class="couple-card">
+                    <div class="couple-photo-wrapper">
+                        <img src="" alt="Bride" class="couple-photo" id="bridePhoto">
+                    </div>
+                    <h3 class="couple-name" id="brideName"></h3>
+                    <p class="couple-fullname" id="brideFullname"></p>
+                    <p class="couple-parents" id="brideParents"></p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" id="brideInstagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="couple-divider">
+                    <span>&</span>
+                </div>
+
+                <div class="couple-card">
+                    <div class="couple-photo-wrapper">
+                        <img src="" alt="Groom" class="couple-photo" id="groomPhoto">
+                    </div>
+                    <h3 class="couple-name" id="groomName"></h3>
+                    <p class="couple-fullname" id="groomFullname"></p>
+                    <p class="couple-parents" id="groomParents"></p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" id="groomInstagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Section -->
+        <section class="event-section">
+            <div class="container">
+                <h2 class="section-title">Acara</h2>
+                
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-ring"></i></div>
+                    <h3 class="event-name">Akad Nikah</h3>
+                    <div class="event-details">
+                        <p><i class="far fa-calendar"></i> <span id="akadDate"></span></p>
+                        <p><i class="far fa-clock"></i> <span id="akadTime"></span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="akadLocation"></span></p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                    <h3 class="event-name">Resepsi</h3>
+                    <div class="event-details">
+                        <p><i class="far fa-calendar"></i> <span id="resepsiDate"></span></p>
+                        <p><i class="far fa-clock"></i> <span id="resepsiTime"></span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="resepsiLocation"></span></p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-primary" id="addToCalendar">
+                    <i class="far fa-calendar-plus"></i> Simpan ke Kalender
+                </a>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <h2 class="section-title">Hitung Mundur</h2>
+                <div class="countdown-wrapper" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">0</span>
+                        <span class="countdown-label">Hari</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">0</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">0</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">0</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <h2 class="section-title">Kisah Kami</h2>
+                <div class="timeline" id="storyTimeline"></div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Galeri</h2>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section" id="videoSection">
+            <div class="container">
+                <h2 class="section-title">Video</h2>
+                <div class="video-wrapper">
+                    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location-section">
+            <div class="container">
+                <h2 class="section-title">Lokasi Acara</h2>
+                <p class="location-address" id="locationAddress"></p>
+                <div class="map-wrapper">
+                    <iframe id="mapFrame" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <a href="#" class="btn-primary" id="openMaps" target="_blank">
+                    <i class="fas fa-map-marked-alt"></i> Buka di Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section class="gift-section">
+            <div class="container">
+                <h2 class="section-title">Kirim Hadiah</h2>
+                <p class="gift-text">Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan hadiah, dapat melalui:</p>
+                
+                <div class="gift-cards" id="giftCards"></div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="container">
+                <h2 class="section-title">Konfirmasi Kehadiran</h2>
+                <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Anda</p>
+                
+                <form class="rsvp-form" id="rsvpForm">
+                    <div class="form-group">
+                        <input type="text" id="rsvpName" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="rsvpAttendance" required>
+                            <option value="">Konfirmasi Kehadiran</option>
+                            <option value="hadir">Hadir</option>
+                            <option value="tidak-hadir">Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="rsvpGuests" placeholder="Jumlah Tamu" min="1" max="5">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="rsvpMessage" placeholder="Ucapan & Doa" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Kirim
+                    </button>
+                </form>
+
+                <div class="wishes-list" id="wishesList"></div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-ornament"></div>
+                <p class="footer-thanks">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+                <p class="footer-regards">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <h3 class="footer-names" id="footerNames"></h3>
+                <div class="footer-ornament"></div>
+                <p class="footer-credit">Made with <i class="fas fa-heart"></i> for your special day</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="backgroundMusic" loop></audio>
+
+    <!-- Modal for Gallery -->
+    <div class="modal" id="galleryModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
