@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\TemplatesDesainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,21 @@ use Illuminate\Support\Facades\Route;
 // ========================================================================
 
 // 1. Your Frontend Route for the homepage
-Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/terms-conditon', [FrontendController::class, 'terms'])->name('terms-condition');
+Route::get('/privacy-policy', [FrontendController::class, 'privacy'])->name('privacy-policy');
+// Templates Route
+Route::get('/desain/golden-harmony', [TemplatesDesainController::class, 'golden'])->name('golden-harmony');
+
+ 
+
+ 
 
 // 2. Your Admin Panel Routes for Templates (now protected by auth middleware)
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('templates', TemplateController::class);
 });
+
 
 
 // ========================================================================

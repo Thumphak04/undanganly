@@ -109,57 +109,57 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section" id="features">
+   <!-- UPDATED Features Section -->
+    <section class="features-section bg-white" id="features">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">Kenapa Memilih Kami?</h2>
-                <p class="section-subtitle">Fitur lengkap untuk undangan digital Anda</p>
+                <h2 class="section-title">Fitur Unggulan Untuk Momen Tak Terlupakan</h2>
+                <p class="section-subtitle">Kami memberikan lebih dari sekadar undangan, kami memberikan pengalaman dan keamanan.</p>
             </div>
             
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
+                    <div class="feature-card h-100">
                         <div class="feature-icon">
-                            <i class="bi bi-phone"></i>
+                            <i class="bi bi-palette-fill"></i>
                         </div>
-                        <h5>Mobile Friendly</h5>
-                        <p>Tampil sempurna di semua perangkat</p>
+                        <h5>Desain Eksklusif & Elegan</h5>
+                        <p>Setiap template dirancang secara profesional untuk memberikan kesan pertama yang mewah dan personal.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
+                    <div class="feature-card h-100">
                         <div class="feature-icon">
-                            <i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-shield-check"></i>
                         </div>
-                        <h5>Mudah Disesuaikan</h5>
-                        <p>Ubah teks, foto, dan warna sesuai keinginan</p>
+                        <h5>Website Resmi & Aman</h5>
+                        <p>Undangan Anda menggunakan domain <strong>nama.undanganly.com</strong> yang terpercaya, melindungi tamu Anda dari link phishing dan penipuan.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
+                    <div class="feature-card h-100">
                         <div class="feature-icon">
-                            <i class="bi bi-music-note-beamed"></i>
+                            <i class="bi bi-gift-fill"></i>
                         </div>
-                        <h5>Musik Latar</h5>
-                        <p>Tambahkan musik favorit Anda</p>
+                        <h5>Fitur Interaktif Lengkap</h5>
+                        <p>Lengkapi undangan dengan galeri foto, musik latar, hitung mundur, navigasi lokasi, hingga amplop digital.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
+                    <div class="feature-card h-100">
                         <div class="feature-icon">
-                            <i class="bi bi-lightning-charge"></i>
+                            <i class="bi bi-person-check-fill"></i>
                         </div>
-                        <h5>Proses Cepat</h5>
-                        <p>Siap dalam 1x24 jam</p>
+                        <h5>Layanan Penuh & Cepat</h5>
+                        <p>Anda cukup kirim materi, tim kami akan siapkan semuanya. Proses pengerjaan cepat, siap sebar dalam 1x24 jam.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-   <section class="how-it-works-section bg-white" id="how-it-works">
+<!-- How It Works Section -->
+   <section class="how-it-works-section" id="how-it-works">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title mb-3">Website Profesional, Proses Semudah Itu</h2>
+                    <h2 class="section-title mb-3">Undangan Digital, Proses Semudah Itu</h2>
                     <p class="section-subtitle mb-4">Kami menyediakan lebih dari sekedar undangan. Dapatkan website eksklusif lengkap dengan fitur canggih untuk membagikan momen bahagia Anda.</p>
                     
                     <ul class="list-unstyled feature-list">
@@ -177,7 +177,7 @@
                             <div class="feature-icon-sm me-3"><i class="bi bi-globe"></i></div>
                             <div>
                                 <h6 class="fw-bold">Alamat Website Eksklusif</h6>
-                                <p class="mb-0 text-muted">Dapatkan alamat link yang cantik dan personal, seperti <strong>undanganly.com/nama-pasangan</strong>, mudah diingat dan dibagikan.</p>
+                                <p class="mb-0 text-muted">Dapatkan alamat link yang cantik dan personal, seperti <strong>nama-pasangan.undanganly.com</strong>, mudah diingat dan dibagikan.</p>
                             </div>
                         </li>
                         <li class="d-flex align-items-start mb-3">

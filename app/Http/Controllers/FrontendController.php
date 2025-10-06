@@ -15,4 +15,17 @@ class FrontendController extends Controller
         $templates = Template::latest()->get();
         return view('app.pages.index', compact('templates'));
     }
+       
+    public function terms()
+    {
+        return view('app.pages.terms-condition');
+    }
+
+    /**
+     * Display the Privacy Policy page.
+     */
+    public function privacy()
+    {
+        return view('app.pages.privacy-policy');
+    }
 }

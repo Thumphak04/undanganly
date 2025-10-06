@@ -1,7 +1,7 @@
 // ==========================================
 // GLOBAL VARIABLES
 // ==========================================
-const whatsappNumber = '6281234567890'; // Ganti dengan nomor WhatsApp Anda
+const whatsappNumber = '6285159448015'; // Ganti dengan nomor WhatsApp Anda
 
 // ==========================================
 // INITIALIZE APP

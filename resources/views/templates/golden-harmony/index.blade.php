@@ -6,7 +6,7 @@
     <title>Undangan Pernikahan</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="{{ asset('/templates/golden-harmony/app.css') }}">
 </head>
 <body>
     <!-- Cover Section -->
@@ -256,7 +256,7 @@
         <img class="modal-content" id="modalImage">
     </div>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script src="{{asset('/templates/golden-harmony/data.js')}}"></script>
+    <script src="{{asset('/templates/golden-harmony/app.js')}}"></script>
 </body>
 </html>

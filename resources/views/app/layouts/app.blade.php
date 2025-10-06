@@ -25,7 +25,7 @@
     <meta name="twitter:description"
         content="Ratusan template undangan pernikahan digital premium, modern, dan elegan. Buat dan sebarkan undangan impian Anda dengan mudah bersama Undanganly.">
     <meta name="twitter:image" content="https://undanganly.com/assets/images/social-share.jpg">
-    <meta name="twitter:site" content="@username_twitter_anda">
+    <meta name="twitter:site" content="@undanganly">
     <meta name="theme-color" content="#A88F5A">
     <meta name="referrer" content="origin-when-cross-origin">
     <link rel="icon" type="image/png" href="{{ asset('/assets/favicon/favicon-96x96.png') }}" sizes="96x96" />
@@ -43,7 +43,7 @@
         rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/detail.css') }}">
+   
 </head>
 
 <body>
