@@ -27,6 +27,7 @@ Route::get('/terms-conditon', [FrontendController::class, 'terms'])->name('terms
 Route::get('/privacy-policy', [FrontendController::class, 'privacy'])->name('privacy-policy');
 // Templates Route
 Route::get('/desain/golden-harmony', [TemplatesDesainController::class, 'golden'])->name('golden-harmony');
+Route::get('/desain/crimsom-bloom', [TemplatesDesainController::class, 'crimsom'])->name('crimsom-bloom');
 
  
 

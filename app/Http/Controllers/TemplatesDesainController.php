@@ -17,4 +17,8 @@ class TemplatesDesainController extends Controller
     {
         return view('templates.golden-harmony.index');
     }
+       public function crimsom()
+    {
+        return view('templates.crimsom-bloom.index');
+    }
 }
