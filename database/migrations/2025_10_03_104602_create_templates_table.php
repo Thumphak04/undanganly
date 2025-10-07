@@ -23,6 +23,19 @@ return new class extends Migration
             $table->string('demo_url')->nullable();
             $table->decimal('price', 12, 2);
             $table->string('badge')->nullable();
+
+            // === SEO Meta Tag Fields ===
+            // Dihapus ->after('badge') karena tidak diperlukan saat membuat tabel baru
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+
+            // === Open Graph Fields (for Social Media Sharing) ===
+            // Dihapus ->after(...)
+            $table->string('og_title')->nullable();
+            $table->text('og_description')->nullable();
+            $table->string('og_image')->nullable();
+            
             $table->timestamps();
         });
     }
@@ -35,4 +48,3 @@ return new class extends Migration
         Schema::dropIfExists('templates');
     }
 };
-

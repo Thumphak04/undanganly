@@ -26,6 +26,22 @@ class Template extends Model
         'demo_url',
         'price',
         'badge',
+        // SEO & Open Graph Fields
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_title',
+        'og_description',
+        'og_image',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'detail_templates' => 'array',
     ];
 
     /**
@@ -35,11 +51,8 @@ class Template extends Model
     {
         parent::boot();
 
-        static::creating(function ($template) {
-            $template->slug = Str::slug($template->name);
-        });
-
-        static::updating(function ($template) {
+        // Automatically create/update the slug when the name is changed
+        static::saving(function ($template) {
             if ($template->isDirty('name')) {
                 $template->slug = Str::slug($template->name);
             }

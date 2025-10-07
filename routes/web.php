@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 // 1. Your Frontend Route for the homepage
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+// Ganti route Anda dengan yang ini di routes/web.php
+Route::get('/desain/{template:slug}', [FrontendController::class, 'show'])->name('templates.show');
 Route::get('/terms-conditon', [FrontendController::class, 'terms'])->name('terms-condition');
 Route::get('/privacy-policy', [FrontendController::class, 'privacy'])->name('privacy-policy');
 // Templates Route

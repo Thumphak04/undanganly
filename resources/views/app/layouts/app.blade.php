@@ -4,28 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undanganly: Buat Undangan Digital Pernikahan Online Premium</title>
-    <meta name="description"
-        content="Buat dan bagikan undangan pernikahan digital impian Anda dengan mudah di Undanganly.com. Pilih dari ratusan template premium, modern, dan elegan. Coba sekarang!">
-    <meta name="keywords"
-        content="undangan digital, undangan online, undangan pernikahan, undangan web, e-invitation, undangan website, buat undangan online, jasa undangan digital, template undangan pernikahan">
-    <meta name="author" content="Undanganly.com">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://undanganly.com/">
-    <meta property="og:title" content="Undanganly: Buat Undangan Digital Pernikahan Online Premium">
-    <meta property="og:description"
-        content="Ratusan template undangan pernikahan digital premium, modern, dan elegan. Buat dan sebarkan undangan impian Anda dengan mudah bersama Undanganly.">
-    <meta property="og:image" content="https://undanganly.com/assets/images/social-share.jpg">
-    <meta property="og:url" content="https://undanganly.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Undanganly.com">
-    <meta property="og:locale" content="id_ID">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Undanganly: Buat Undangan Digital Pernikahan Online Premium">
-    <meta name="twitter:description"
-        content="Ratusan template undangan pernikahan digital premium, modern, dan elegan. Buat dan sebarkan undangan impian Anda dengan mudah bersama Undanganly.">
-    <meta name="twitter:image" content="https://undanganly.com/assets/images/social-share.jpg">
-    <meta name="twitter:site" content="@undanganly">
+    
+    {{-- BLOK META TAGS DINAMIS --}}
+    @section('meta_tags')
+        {{-- Ini adalah meta tags default untuk Homepage dan halaman lain --}}
+        <title>Undanganly: Buat Undangan Digital Pernikahan Online Premium</title>
+        <meta name="description"
+            content="Buat dan bagikan undangan pernikahan digital impian Anda dengan mudah di Undanganly.com. Pilih dari ratusan template premium, modern, dan elegan. Coba sekarang!">
+        <meta name="keywords"
+            content="undangan digital, undangan online, undangan pernikahan, undangan web, e-invitation, undangan website, buat undangan online, jasa undangan digital, template undangan pernikahan">
+        <meta name="author" content="Undanganly.com">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta property="og:title" content="Undanganly: Buat Undangan Digital Pernikahan Online Premium">
+        <meta property="og:description"
+            content="Ratusan template undangan pernikahan digital premium, modern, dan elegan. Buat dan sebarkan undangan impian Anda dengan mudah bersama Undanganly.">
+        <meta property="og:image" content="{{ asset('assets/images/social-share.jpg') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Undanganly.com">
+        <meta property="og:locale" content="id_ID">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Undanganly: Buat Undangan Digital Pernikahan Online Premium">
+        <meta name="twitter:description"
+            content="Ratusan template undangan pernikahan digital premium, modern, dan elegan. Buat dan sebarkan undangan impian Anda dengan mudah bersama Undanganly.">
+        <meta name="twitter:image" content="{{ asset('assets/images/social-share.jpg') }}">
+        <meta name="twitter:site" content="@undanganly">
+    @show
+    {{-- AKHIR BLOK META TAGS --}}
+
     <meta name="theme-color" content="#A88F5A">
     <meta name="referrer" content="origin-when-cross-origin">
     <link rel="icon" type="image/png" href="{{ asset('/assets/favicon/favicon-96x96.png') }}" sizes="96x96" />
@@ -43,7 +50,7 @@
         rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/app.css') }}">
-   
+    @stack('styles')
 </head>
 
 <body>
@@ -62,6 +69,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="{{ asset('/assets/js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
+

@@ -15,6 +15,7 @@ class TemplateController extends Controller
     public function index()
     {
         $templates = Template::latest()->paginate(10);
+        // Pastikan path view sudah benar sesuai struktur folder Anda
         return view('admin.panel.templates.index', compact('templates'));
     }
 
@@ -23,6 +24,7 @@ class TemplateController extends Controller
      */
     public function create()
     {
+        // Pastikan path view sudah benar
         return view('admin.panel.templates.create');
     }
 
@@ -31,26 +33,34 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'category' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
             'detail_templates' => 'nullable|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'preview_url' => 'nullable|url',
-            'demo_url' => 'nullable|url',
             'price' => 'required|numeric|min:0',
             'badge' => 'nullable|string|max:50',
+            'preview_url' => 'nullable|url',
+            'demo_url' => 'nullable|url',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // SEO Fields Validation
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string|max:255',
+            'og_title' => 'nullable|string|max:255',
+            'og_description' => 'nullable|string',
+            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->except('thumbnail');
-
         if ($request->hasFile('thumbnail')) {
-            $path = $request->file('thumbnail')->store('uploads/templates', 'public');
-            $data['thumbnail'] = $path;
+            $validatedData['thumbnail'] = $request->file('thumbnail')->store('templates/thumbnails', 'public');
         }
 
-        Template::create($data);
+        if ($request->hasFile('og_image')) {
+            $validatedData['og_image'] = $request->file('og_image')->store('templates/og_images', 'public');
+        }
+
+        Template::create($validatedData);
 
         return redirect()->route('admin.templates.index')
                          ->with('success', 'Template created successfully.');
@@ -61,6 +71,7 @@ class TemplateController extends Controller
      */
     public function edit(Template $template)
     {
+        // Pastikan path view sudah benar
         return view('admin.panel.templates.edit', compact('template'));
     }
 
@@ -69,30 +80,42 @@ class TemplateController extends Controller
      */
     public function update(Request $request, Template $template)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'category' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
             'detail_templates' => 'nullable|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'preview_url' => 'nullable|url',
-            'demo_url' => 'nullable|url',
             'price' => 'required|numeric|min:0',
             'badge' => 'nullable|string|max:50',
+            'preview_url' => 'nullable|url',
+            'demo_url' => 'nullable|url',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // SEO Fields Validation
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string|max:255',
+            'og_title' => 'nullable|string|max:255',
+            'og_description' => 'nullable|string',
+            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->except('thumbnail');
-
         if ($request->hasFile('thumbnail')) {
-            // Delete old thumbnail if it exists
+            // Hapus thumbnail lama jika ada
             if ($template->thumbnail) {
                 Storage::disk('public')->delete($template->thumbnail);
             }
-            $path = $request->file('thumbnail')->store('uploads/templates', 'public');
-            $data['thumbnail'] = $path;
+            $validatedData['thumbnail'] = $request->file('thumbnail')->store('templates/thumbnails', 'public');
         }
 
-        $template->update($data);
+        if ($request->hasFile('og_image')) {
+            // Hapus og_image lama jika ada
+            if ($template->og_image) {
+                Storage::disk('public')->delete($template->og_image);
+            }
+            $validatedData['og_image'] = $request->file('og_image')->store('templates/og_images', 'public');
+        }
+
+        $template->update($validatedData);
 
         return redirect()->route('admin.templates.index')
                          ->with('success', 'Template updated successfully.');
@@ -103,11 +126,17 @@ class TemplateController extends Controller
      */
     public function destroy(Template $template)
     {
-        // Delete the thumbnail file
+        // Hapus file thumbnail dari storage jika ada
         if ($template->thumbnail) {
             Storage::disk('public')->delete($template->thumbnail);
         }
+
+        // Hapus file og_image dari storage jika ada
+        if ($template->og_image) {
+            Storage::disk('public')->delete($template->og_image);
+        }
         
+        // Hapus record dari database
         $template->delete();
 
         return redirect()->route('admin.templates.index')

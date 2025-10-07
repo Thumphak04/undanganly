@@ -13,7 +13,7 @@
                     {{-- These links point to sections on the homepage --}}
                     <li class="nav-item"><a class="nav-link" href="{{ route('index') }}#templates">Template</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('index') }}#how-it-works">Cara Kerja</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('index') }}#features">Keunggulan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index') }}#advantages-section">Keunggulan</a></li>
                     
                 </ul>
             </div>

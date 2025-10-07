@@ -1,204 +1,327 @@
 @extends('app.layouts.app')
 
+
+
 @section('content')
     <!-- Hero Section -->
-<section class="hero-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-                <h1 class="hero-title mb-3">Undangan Digital Premium untuk Momen Spesial Anda</h1>
-                <p class="hero-subtitle mb-4">Ciptakan undangan digital yang elegan dan berkesan dengan koleksi template premium kami</p>
-                <a href="#templates" class="btn btn-primary btn-lg px-4 py-3">
-                    <i class="bi bi-search me-2"></i>Lihat Template
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <div class="hero-image">
-                    <div class="card-stack">
-                        <div class="hero-card">
-                             <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
-                        </div>
-                        <div class="hero-card">
-                             <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
-                        </div>
-                        <div class="hero-card">
-                            <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan 3">
-                        </div>
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="hero-headline mb-4">Buat Undangan Digital Premium, <br>Tanpa Ribet.</h1>
+                    <p class="hero-subtitle mb-4">
+                        Kini membuat undangan website bukan lagi hal yang sulit. Anda bisa membuatnya sendiri hanya dalam 5 menit. Butuh bantuan? Tim kami siap mengerjakan semuanya untuk Anda.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#templates" class="btn btn-primary btn-lg px-4 py-3">
+                            <i class="bi bi-collection me-2"></i>Lihat Desain
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=6285159448015&text=Halo%20admin%20Undanganly,%20saya%20butuh%20bantuan%20untuk%20pembuatan%20undangan." class="btn btn-outline-primary btn-lg px-4 py-3">
+                            <i class="bi bi-whatsapp me-2"></i>Hubungi Admin
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-image-cluster">
+                      
+                        <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Contoh Undangan Pernikahan Digital" class="hero-img-main">
+                        <img src="{{asset('/assets/hero/buat-undangan-digital.png')}}" alt="Desain Undangan Online" class="hero-img-secondary">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Filter Section -->
-    <section class="filter-section" id="templates">
+    <!-- Category Carousel Section -->
+    <section class="category-section">
         <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Pilih Template Favorit Anda</h2>
-                <p class="section-subtitle">Semua template dapat disesuaikan dengan kebutuhan Anda</p>
+            <div class="category-carousel" id="categoryCarousel">
+                <a href="#" class="category-card active" data-filter="all">
+                    <div class="category-icon">✨</div>
+                    <span>Semua</span>
+                </a>
+                <a href="#" class="category-card" data-filter="pernikahan">
+                    <div class="category-icon">💍</div>
+                    <span>Pernikahan</span>
+                </a>
+                 <a href="#" class="category-card" data-filter="pertunangan">
+                    <div class="category-icon">💎</div>
+                    <span>Tunangan</span>
+                </a>
+                <a href="#" class="category-card" data-filter="ulang_tahun">
+                    <div class="category-icon">🎂</div>
+                    <span>Ulang Tahun</span>
+                </a>
+                 <a href="#" class="category-card" data-filter="lainnya">
+                    <div class="category-icon">🎉</div>
+                    <span>Acara Lain</span>
+                </a>
             </div>
-            
-            <div class="filter-buttons mb-5">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="bi bi-grid-3x3-gap me-2"></i>Semua
-                </button>
-                <button class="filter-btn" data-filter="pernikahan">
-                    <i class="bi bi-heart me-2"></i>Pernikahan
-                </button>
-                <button class="filter-btn" data-filter="ulang_tahun">
-                    <i class="bi bi-cake2 me-2"></i>Ulang Tahun
-                </button>
-                <button class="filter-btn" data-filter="pertunangan">
-                    <i class="bi bi-gem me-2"></i>Pertunangan
-                </button>
-                <button class="filter-btn" data-filter="wisuda">
-                    <i class="bi bi-mortarboard me-2"></i>Wisuda
-                </button>
-                <button class="filter-btn" data-filter="lainnya">
-                    <i class="bi bi-stars me-2"></i>Lainnya
-                </button>
-            </div>
+        </div>
+    </section>
 
-            <!-- Templates Grid -->
+    <!-- Templates Section -->
+    <section class="templates-section" id="templates">
+        <div class="container">
+             <div class="text-center mb-5">
+                <h2 class="section-title">Pilih Desain Undangan Anda</h2>
+            </div>
             <div class="row g-4" id="templatesGrid">
                 @forelse ($templates as $template)
-                    <div class="col-6 col-lg-4 col-xl-3 template-item-col" data-category="{{ $template->category ?? 'lainnya' }}">
-                        <div class="template-card">
-                            <div class="template-image">
+                    <div class="col-6 col-md-4 col-lg-3 template-item-col" data-category="{{ $template->category ?? 'lainnya' }}">
+                        <div class="template-card-v2">
+                            <div class="template-image-v2">
                                 <img src="{{ $template->thumbnail ? asset('storage/' . $template->thumbnail) : 'https://placehold.co/500x700/eee/ccc?text=No+Image' }}" alt="{{ $template->name }}" loading="lazy">
-                                @if($template->badge)
-                                    <span class="template-badge">{{ $template->badge }}</span>
-                                @endif
-                                <div class="template-overlay">
-                                    <button class="preview-btn" 
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#previewModal"
-                                        data-preview-url="{{ $template->preview_url }}"
-                                        data-template-name="{{ $template->name }}"
-                                        data-template-price="{{ number_format($template->price, 0, ',', '.') }}"
-                                        data-template-details='@json($template->detail_templates)'>
-                                        <i class="bi bi-eye"></i>
-                                    </button>
-                                </div>
                             </div>
-                            <div class="template-content">
-                                <h5 class="template-title">{{ $template->name }}</h5>
-                                <p class="template-description">{{ Str::limit($template->description, 50) }}</p>
-                                <div class="template-footer">
-                                    <div class="template-price">
-                                        Rp{{ number_format($template->price, 0, ',', '.') }}
-                                    </div>
-                                    <button class="order-template-btn order-btn" 
-                                            data-template="{{ $template->name }}" 
-                                            data-price="{{ number_format($template->price, 0, ',', '.') }}">
-                                        <i class="bi bi-whatsapp"></i> Pesan
-                                    </button>
-                                </div>
+                            <div class="template-content-v2">
+                                <a href="{{ route('templates.show', $template->slug) }}" class="template-title-v2">{{ $template->name }}</a>
+                                <div class="template-price-v2">Rp{{ number_format($template->price, 0, ',', '.') }}</div>
+                            </div>
+                            <div class="template-footer-v2">
+                                <button type="button" class="btn btn-sm btn-icon btn-outline-primary" data-bs-toggle="modal" data-bs-target="#demoModal" 
+                                    data-demo-url="{{ $template->demo_url }}" 
+                                    data-template-name="{{ $template->name }}"
+                                    data-template-price="{{ number_format($template->price, 0, ',', '.') }}"
+                                    aria-label="Lihat Demo">
+                                    <i class="bi bi-camera-video"></i>
+                                </button>
+                                <a href="{{ route('templates.show', $template->slug) }}" class="btn btn-sm btn-icon btn-outline-primary" aria-label="Lihat Detail">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-icon btn-primary order-btn" 
+                                    data-template="{{ $template->name }}" 
+                                    data-price="{{ number_format($template->price, 0, ',', '.') }}"
+                                    aria-label="Pesan Sekarang">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 @empty
                     <div class="col-12 text-center py-5">
-                        <i class="bi bi-inbox display-1 text-muted"></i>
-                        <h4 class="mt-3 text-muted">Belum ada template yang tersedia</h4>
-                        <p class="text-muted">Silakan cek kembali nanti atau hubungi kami untuk request khusus</p>
+                        <p class="text-muted">Template untuk kategori ini belum tersedia.</p>
                     </div>
                 @endforelse
             </div>
         </div>
     </section>
 
-   <!-- UPDATED Features Section -->
-    <section class="features-section bg-white" id="features">
+    <!-- Advantages (Keunggulan) Section -->
+    <section class="advantages-section" id="advantages-section">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">Fitur Unggulan Untuk Momen Tak Terlupakan</h2>
-                <p class="section-subtitle">Kami memberikan lebih dari sekadar undangan, kami memberikan pengalaman dan keamanan.</p>
+                <h2 class="section-title">Keunggulan Undanganly</h2>
+                <p class="section-subtitle">Fitur premium terlengkap untuk memastikan momen spesial Anda tak terlupakan.</p>
             </div>
-            
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">
-                            <i class="bi bi-palette-fill"></i>
-                        </div>
-                        <h5>Desain Eksklusif & Elegan</h5>
-                        <p>Setiap template dirancang secara profesional untuk memberikan kesan pertama yang mewah dan personal.</p>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-gem"></i></div>
+                        <h5 class="advantage-title">Desain Eksklusif</h5>
+                        <p class="text-muted d-none d-lg-block">Template modern yang dirancang oleh desainer profesional kami.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h5>Website Resmi & Aman</h5>
-                        <p>Undangan Anda menggunakan domain <strong>nama.undanganly.com</strong> yang terpercaya, melindungi tamu Anda dari link phishing dan penipuan.</p>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-gift-fill"></i></div>
+                        <h5 class="advantage-title">Amplop Digital</h5>
+                        <p class="text-muted d-none d-lg-block">Tamu dapat mengirim hadiah secara online dengan mudah via e-wallet.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">
-                            <i class="bi bi-gift-fill"></i>
-                        </div>
-                        <h5>Fitur Interaktif Lengkap</h5>
-                        <p>Lengkapi undangan dengan galeri foto, musik latar, hitung mundur, navigasi lokasi, hingga amplop digital.</p>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-calendar-check-fill"></i></div>
+                        <h5 class="advantage-title">RSVP Online</h5>
+                        <p class="text-muted d-none d-lg-block">Dapatkan data kehadiran tamu undangan secara real-time ke WhatsApp.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon">
-                            <i class="bi bi-person-check-fill"></i>
-                        </div>
-                        <h5>Layanan Penuh & Cepat</h5>
-                        <p>Anda cukup kirim materi, tim kami akan siapkan semuanya. Proses pengerjaan cepat, siap sebar dalam 1x24 jam.</p>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-images"></i></div>
+                        <h5 class="advantage-title">Galeri Foto & Video</h5>
+                        <p class="text-muted d-none d-lg-block">Bagikan momen pre-wedding Anda dalam galeri yang indah.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-person-check-fill"></i></div>
+                        <h5 class="advantage-title">Nama Tamu Unlimited</h5>
+                        <p class="text-muted d-none d-lg-block">Sapa setiap tamu secara personal tanpa batasan jumlah.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon"><i class="bi bi-patch-check-fill"></i></div>
+                        <h5 class="advantage-title">Layanan Penuh</h5>
+                        <p class="text-muted d-none d-lg-block">Anda sibuk? Tim kami yang akan kerjakan semuanya. Terima beres!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- How It Works Section -->
-   <section class="how-it-works-section" id="how-it-works">
+    <!-- Feature Highlight Section -->
+    <section class="feature-highlight-section">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <div class="video-placeholder rounded-4 shadow-lg">
-                         <i class="bi bi-play-circle-fill display-1 text-white"></i>
-                         <p class="text-white mt-3 fw-bold">Lihat Contoh Undangan</p>
-                    </div>
+                    
+                    <img style="max-height: 600px" src="{{asset('/assets/hero/saction-undangan-digital.jpg')}}" class="img-fluid rounded-4 shadow-sm" alt="Fitur Sebar dan Ubah Nama Tamu Tanpa Batas">
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title mb-3">Undangan Digital, Proses Semudah Itu</h2>
-                    <p class="section-subtitle mb-4">Kami menyediakan lebih dari sekedar undangan. Dapatkan website eksklusif lengkap dengan fitur canggih untuk membagikan momen bahagia Anda.</p>
-                    
-                    <ul class="list-unstyled feature-list">
-                        <li class="d-flex align-items-start mb-3">
-                            <div class="feature-icon-sm me-3"><i class="bi bi-globe"></i></div>
-                            <div>
-                                <h6 class="fw-bold">Alamat Website Eksklusif</h6>
-                                <p class="mb-0 text-muted">Dapatkan alamat link yang cantik dan personal, seperti <strong>nama-pasangan.undanganly.com</strong>, mudah diingat dan dibagikan.</p>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-start mb-3">
-                            <div class="feature-icon-sm me-3"><i class="bi bi-shield-check"></i></div>
-                            <div>
-                                <h6 class="fw-bold">Keamanan Terjamin</h6>
-                                <p class="mb-0 text-muted">Link undangan Anda kami proteksi untuk mencegah manipulasi data dan penyalahgunaan oleh pihak tidak bertanggung jawab.</p>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-start">
-                             <div class="feature-icon-sm me-3"><i class="bi bi-person-check-fill"></i></div>
-                            <div>
-                                <h6 class="fw-bold">Layanan Penuh oleh Admin</h6>
-                                <p class="mb-0 text-muted">Anda tidak perlu pusing. Cukup kirim materi, dan tim kami akan membuatkan undangan dari awal hingga siap sebar.</p>
-                            </div>
-                        </li>
-                    </ul>
+                    <h2 class="section-title text-start mb-3">Sebar & Ubah Nama Tamu Tanpa Batas</h2>
+                    <p class="section-subtitle text-start ms-0">Kirim undangan ke semua kerabat dengan mudah. Tulis nama tamu di setiap undangan yang Anda sebar untuk memberikan sentuhan yang lebih personal dan eksklusif, tanpa ada batasan jumlah.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Layanan Penuh Tim Undanganly</h2>
+                 <p class="section-subtitle">Anda sibuk? Tidak masalah. Tim profesional kami siap mengerjakan undangan Anda dari awal hingga akhir. Anda terima beres!</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <div>
+                            <h5 class="step-title">Konsultasi & Kirim Materi</h5>
+                            <p class="text-muted mb-0">Diskusikan kebutuhan Anda dan kirimkan semua materi undangan kepada admin kami via WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">2</div>
+                        <div>
+                            <h5 class="step-title">Proses Pembuatan</h5>
+                            <p class="text-muted mb-0">Tim desainer kami akan menyusun undangan Anda dengan teliti sesuai desain yang Anda pilih.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">3</div>
+                        <div>
+                            <h5 class="step-title">Revisi & Finalisasi</h5>
+                            <p class="text-muted mb-0">Kami akan mengirimkan pratinjau untuk Anda periksa. Jika sudah sesuai, undangan Anda siap disebar!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Apa Kata Mereka?</h2>
+                <p class="section-subtitle">Cerita bahagia dari pasangan yang telah memercayakan momen spesialnya pada kami.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Prosesnya beneran sat-set! Kirim materi sore, besok pagi undangannya udah jadi dan siap sebar. Desainnya juga mewah banget, melebihi ekspektasi."</p>
+                        <div class="author">- Rian & Anisa, Jakarta</div>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Sangat membantu di tengah kesibukan persiapan nikah. Nggak perlu pusing mikirin teknis, hasilnya profesional dan semua tamu suka."</p>
+                        <div class="author">- Budi & Citra, Surabaya</div>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Fitur amplop digitalnya keren banget! Praktis buat tamu yang jauh. Tim Undanganly juga responsif dan sabar banget jawabin semua pertanyaan."</p>
+                        <div class="author">- Dito & Sarah, Bandung</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Tanya Jawab</h2>
+                <p class="section-subtitle">Beberapa pertanyaan yang sering diajukan oleh calon pelanggan kami.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Bagaimana proses pemesanannya?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sangat mudah! Anda hanya perlu memilih desain yang disukai, klik "Pesan Sekarang", lalu tim kami akan menghubungi Anda via WhatsApp untuk meminta materi (detail acara, foto, dll). Setelah itu, Anda tinggal tunggu, dan undangan Anda akan kami siapkan hingga selesai.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Berapa lama proses pengerjaannya?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Kami berkomitmen untuk pelayanan yang cepat. Setelah semua materi kami terima lengkap, proses pengerjaan undangan digital Anda maksimal hanya 1x24 jam.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Apakah saya bisa meminta revisi jika ada data yang salah?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Tentu saja. Setiap paket pemesanan sudah termasuk 2x kesempatan revisi minor (seperti salah ketik nama, gelar, atau jam acara) secara gratis. Kami ingin memastikan semua informasi di undangan Anda akurat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- MODAL UNTUK LIVE DEMO --}}
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demoModalLabel">Live Demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="iframe-container">
+                        <iframe id="demoFrame" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                     <a href="#" id="orderFromModal" class="btn btn-primary" target="_blank">
+                        <i class="bi bi-whatsapp me-2"></i>Pesan Template Ini
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+
+
